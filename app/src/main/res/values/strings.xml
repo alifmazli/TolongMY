@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="back_home">Back Home</string>
+    <string name="tolong_my">Tolong MY</string>
+    <string name="your_location_have_been_displayed_to_the_helpers">Your location have been displayed to the helpers.</string>
+    <string name="stay_safe">Stay Safe</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps_helper">MapsActivityHelper</string>
+</resources>

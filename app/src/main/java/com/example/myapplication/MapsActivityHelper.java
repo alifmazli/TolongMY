@@ -17,6 +17,7 @@ public class MapsActivityHelper extends FragmentActivity implements OnMapReadyCa
 
     private GoogleMap mMap;
     private ActivityMapsHelperBinding binding;
+    VictimRegistrationPage vrp = new VictimRegistrationPage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,11 @@ public class MapsActivityHelper extends FragmentActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         //LatLng victim = getIntent().getExtras().getParcelable("Victim");
-        LatLng testLatLng = new LatLng(1,103);
-        mMap.addMarker(new MarkerOptions().position(testLatLng).title("Victim"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
+        for(int i=0;i<1;i++) {
+            LatLng testLatLng = new LatLng(vrp.person.getLatitude(), vrp.person.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(testLatLng).title(vrp.person.getName()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
+        }
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
     }
 }

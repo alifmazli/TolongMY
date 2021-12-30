@@ -27,18 +27,21 @@ public class GoogleLocationTracker extends AppCompatActivity {
     private LocationManager test;
     private final long MIN_TIME = 1000;
     private final long MIN_DIST = 5;
-    private LatLng  latlng;
+    private LatLng latlng;
+    private int latitude, longitude;
 
     public void buttonBackHome(View view) {
         openHome();
     }
 
-    public void openHome() {
-        Intent intent1 = new Intent(this, MainActivity.class);
-        Intent intent2 = new Intent(this, MapsActivityHelper.class);
-        intent2.putExtra("Victim", latlng);
-        startActivity(intent1);
-    }
+//    public void openHome() {
+//        getLatitude();
+//        getLongitude();
+//        Intent intent1 = new Intent(this, MainActivity.class);
+//        Intent intent2 = new Intent(this, MapsActivityHelper.class);
+//        intent2.putExtra("Victim", latlng);
+//        startActivity(intent1);
+//    }
 
     //@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +52,15 @@ public class GoogleLocationTracker extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
     }
 
-
     public void onMapReady(GoogleMap googleMap) {
-
         locationlistener = new LocationListener() {
-
             public void onLocationChanged(Location location) {
                 latlng = new LatLng(location.getLatitude(), location.getLongitude());
-                test = (LocationManager) getSystemService(LOCATION_SERVICE);
+                latitude = (int) location.getLatitude();
+                longitude = (int) location.getLongitude();
+                //test = (LocationManager) getSystemService(LOCATION_SERVICE);
                 try{
-                    test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST,locationlistener);
+                    //test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST,locationlistener);
                 }
                 catch(SecurityException e){
                     e.printStackTrace();
@@ -66,9 +68,31 @@ public class GoogleLocationTracker extends AppCompatActivity {
                 LatLng game = new LatLng(1,103);
                 mMap.addMarker(new MarkerOptions().position(game).title("Victim"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(game));
-
             };
         };
+        test = (LocationManager) getSystemService(LOCATION_SERVICE);
+        try{
+            test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST,locationlistener);
+        }
+        catch(SecurityException e){
+            e.printStackTrace();
+        }
     }
 
+    public void openHome() {
+        getLatitude();
+        getLongitude();
+        Intent intent1 = new Intent(this, MainActivity.class);
+        Intent intent2 = new Intent(this, MapsActivityHelper.class);
+        intent2.putExtra("Victim", latlng);
+        startActivity(intent1);
+    }
+
+    public int getLatitude(){
+        return latitude;
+    }
+
+    public int getLongitude(){
+        return longitude;
+    }
 }

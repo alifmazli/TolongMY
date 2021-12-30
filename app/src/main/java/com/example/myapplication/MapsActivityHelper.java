@@ -45,9 +45,9 @@ public class MapsActivityHelper extends FragmentActivity implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng victim = getIntent().getExtras().getParcelable("Victim");
-        LatLng game = new LatLng(1,103);
-        mMap.addMarker(new MarkerOptions().position(game).title("Victim"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(game));
+        //LatLng victim = getIntent().getExtras().getParcelable("Victim");
+        LatLng testLatLng = new LatLng(1,103);
+        mMap.addMarker(new MarkerOptions().position(testLatLng).title("Victim"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
     }
 }

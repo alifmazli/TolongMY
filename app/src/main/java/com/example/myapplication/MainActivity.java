@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void submitbuttonHandlerhelper(View view) {
+    public void submitButtonHandlerHelper(View view) {
         openHelper();
     }
 
@@ -23,14 +23,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void submitbuttonHandlervictim(View view) {
+    public void submitButtonHandlerVictim(View view) {
         openVictim();
     }
 
     public void openVictim() {
-        Intent intent = new Intent(this, Page2.class);
+        Intent intent = new Intent(this, VictimRegistrationPage.class);
         startActivity(intent);
     }
-
-
 }

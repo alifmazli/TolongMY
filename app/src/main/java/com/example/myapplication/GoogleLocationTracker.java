@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.myapplication.databinding.ActivityMapsBinding;
 
-public class trackLocation extends AppCompatActivity {
+public class GoogleLocationTracker extends AppCompatActivity {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;

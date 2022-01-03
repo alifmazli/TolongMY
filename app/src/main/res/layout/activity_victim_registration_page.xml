@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VictimRegistrationPage">
+    tools:context=".VictimRegistrationPageActivity">
 
     <CheckBox
         android:id="@+id/conditions2"
@@ -45,7 +45,7 @@
         android:layout_height="48dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Ic Number"
+        android:hint="I/C Number"
         android:textColorHint="#757575"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter your name"
+        android:hint="Name"
         android:textColorHint="#757575"
         android:inputType="none"
 

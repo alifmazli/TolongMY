@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openHelper() {
-        Intent intent = new Intent(this, MapsActivityHelper.class);
+        Intent intent = new Intent(MainActivity.this, HelperMapDisplayPageActivity.class);
         startActivity(intent);
     }
 
     public void openVictim() {
-        Intent intent = new Intent(this, VictimRegistrationPage.class);
+        Intent intent = new Intent(MainActivity.this, VictimRegistrationPageActivity.class);
         startActivity(intent);
     }
 }

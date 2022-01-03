@@ -11,13 +11,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.myapplication.databinding.ActivityMapsHelperBinding;
-import com.example.myapplication.MapsActivity;
 
-public class MapsActivityHelper extends FragmentActivity implements OnMapReadyCallback {
+public class HelperMapDisplayPageActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsHelperBinding binding;
-    VictimRegistrationPage vrp = new VictimRegistrationPage();
+    VictimRegistrationPageActivity vrp = new VictimRegistrationPageActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +47,8 @@ public class MapsActivityHelper extends FragmentActivity implements OnMapReadyCa
         mMap = googleMap;
         //LatLng victim = getIntent().getExtras().getParcelable("Victim");
         for(int i=0;i<1;i++) {
-            LatLng testLatLng = new LatLng(vrp.person.getLatitude(), vrp.person.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(testLatLng).title(vrp.person.getName()));
+            LatLng testLatLng = new LatLng(vrp.victim.getLatitude(), vrp.victim.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(testLatLng).title(vrp.victim.getName()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
         }
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));

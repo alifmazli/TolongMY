@@ -27,7 +27,7 @@ public class GoogleLocationTracker extends AppCompatActivity {
     private LocationManager test;
     private final long MIN_TIME = 1000;
     private final long MIN_DIST = 5;
-    private LatLng latlng;
+    private LatLng latLng;
     private int latitude, longitude;
 
     public void buttonBackHome(View view) {
@@ -55,7 +55,7 @@ public class GoogleLocationTracker extends AppCompatActivity {
     public void onMapReady(GoogleMap googleMap) {
         locationlistener = new LocationListener() {
             public void onLocationChanged(Location location) {
-                latlng = new LatLng(location.getLatitude(), location.getLongitude());
+                latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 latitude = (int) location.getLatitude();
                 longitude = (int) location.getLongitude();
                 //test = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -83,8 +83,8 @@ public class GoogleLocationTracker extends AppCompatActivity {
         getLatitude();
         getLongitude();
         Intent intent1 = new Intent(this, MainActivity.class);
-        Intent intent2 = new Intent(this, MapsActivityHelper.class);
-        intent2.putExtra("Victim", latlng);
+        Intent intent2 = new Intent(this, HelperMapDisplayPageActivity.class);
+        intent2.putExtra("Victim", latLng);
         startActivity(intent1);
     }
 

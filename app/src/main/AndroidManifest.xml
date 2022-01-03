@@ -35,7 +35,7 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".MapsActivityHelper"
+            android:name=".HelperMapDisplayPageActivity"
             android:exported="false"
             android:label="@string/title_activity_maps_helper" />
         <activity
@@ -46,7 +46,7 @@
             android:name=".GoogleLocationTracker"
             android:exported="false" />
         <activity
-            android:name=".VictimRegistrationPage"
+            android:name=".VictimRegistrationPageActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

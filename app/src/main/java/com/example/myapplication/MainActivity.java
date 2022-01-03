@@ -14,17 +14,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void submitButtonHandlerHelper(View view) {
+    public void helperSubmitButtonHandler(View view) {
         openHelper();
+    }
+
+    public void victimSubmitButtonHandler(View view) {
+        openVictim();
     }
 
     public void openHelper() {
         Intent intent = new Intent(this, MapsActivityHelper.class);
         startActivity(intent);
-    }
-
-    public void submitButtonHandlerVictim(View view) {
-        openVictim();
     }
 
     public void openVictim() {

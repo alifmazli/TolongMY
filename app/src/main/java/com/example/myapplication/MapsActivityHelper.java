@@ -55,3 +55,7 @@ public class MapsActivityHelper extends FragmentActivity implements OnMapReadyCa
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
     }
 }
+
+// TODO Try outputting latlng as marker
+// TODO Test latlng
+// TODO Emulator location from where?

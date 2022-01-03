@@ -16,7 +16,7 @@ public class HelperMapDisplayPageActivity extends FragmentActivity implements On
 
     private GoogleMap mMap;
     private ActivityMapsHelperBinding binding;
-    VictimRegistrationPageActivity vrp = new VictimRegistrationPageActivity();
+    VictimRegistrationPageActivity victimRegPageActivity = new VictimRegistrationPageActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class HelperMapDisplayPageActivity extends FragmentActivity implements On
         mMap = googleMap;
         //LatLng victim = getIntent().getExtras().getParcelable("Victim");
         for(int i=0;i<1;i++) {
-            LatLng testLatLng = new LatLng(vrp.victim.getLatitude(), vrp.victim.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(testLatLng).title(vrp.victim.getName()));
+            LatLng testLatLng = new LatLng(victimRegPageActivity.victim.getLatitude(), victimRegPageActivity.victim.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(testLatLng).title(victimRegPageActivity.victim.getName()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));
         }
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(testLatLng));

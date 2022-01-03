@@ -23,7 +23,7 @@ public class GoogleLocationTracker extends AppCompatActivity {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private LocationListener locationlistener;
+    private LocationListener locationListener;
     private LocationManager test;
     private final long MIN_TIME = 1000;
     private final long MIN_DIST = 5;
@@ -49,18 +49,18 @@ public class GoogleLocationTracker extends AppCompatActivity {
         setContentView(R.layout.activity_track_location);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PackageManager.PERMISSION_GRANTED);
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+//        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
     }
 
     public void onMapReady(GoogleMap googleMap) {
-        locationlistener = new LocationListener() {
+        locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
                 latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 latitude = (int) location.getLatitude();
                 longitude = (int) location.getLongitude();
                 //test = (LocationManager) getSystemService(LOCATION_SERVICE);
                 try{
-                    //test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST,locationlistener);
+                    //test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST,locationListener);
                 }
                 catch(SecurityException e){
                     e.printStackTrace();
@@ -72,7 +72,7 @@ public class GoogleLocationTracker extends AppCompatActivity {
         };
         test = (LocationManager) getSystemService(LOCATION_SERVICE);
         try{
-            test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST,locationlistener);
+            test.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME,MIN_DIST, locationListener);
         }
         catch(SecurityException e){
             e.printStackTrace();

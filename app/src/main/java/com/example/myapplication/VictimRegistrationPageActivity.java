@@ -32,7 +32,7 @@ public class VictimRegistrationPageActivity extends AppCompatActivity {
         String phoneNum = editPhoneNum.getText().toString();
 
         trackLocation();
-        victim.storeVictimDetails(googleLocationTracker.getLatitude(), googleLocationTracker.getLongitude(), name, icNum, phoneNum);
+        victim.storeVictimDetails((int)googleLocationTracker.getLatitude(),(int) googleLocationTracker.getLongitude(), name, icNum, phoneNum);
         //victimList.add(person);
     }
 
